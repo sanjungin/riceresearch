@@ -681,12 +681,150 @@
         
         /* CTA Section */
         .cta-section {
-            background: linear-gradient(135deg, #558B2F 0%, #33691E 100%);
+            position: relative;
             padding: 60px 20px;
             text-align: center;
             color: #fff;
             margin-bottom: 40px;
             border-radius: 20px;
+            overflow: hidden;
+            min-height: 300px;
+            background: linear-gradient(-45deg, #1a5928, #2E7D32, #4CAF50, #1B5E20, #388E3C);
+            background-size: 300% 300%;
+            animation: gradientBG 8s ease infinite;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Leaves Container */
+        .cta-leaves {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        /* Rice Grain Shape */
+        .leaf {
+            position: absolute;
+            width: 12px;
+            height: 24px;
+            background: linear-gradient(135deg, #FFFDE7 0%, #F5F5DC 50%, #E8E4C9 100%);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            opacity: 0.8;
+            animation: falling linear infinite;
+            box-shadow: 
+                inset -2px -2px 4px rgba(0,0,0,0.1),
+                inset 2px 2px 4px rgba(255,255,255,0.8),
+                0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .leaf::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 3px;
+            width: 4px;
+            height: 8px;
+            background: rgba(255,255,255,0.6);
+            border-radius: 50%;
+        }
+        
+        .leaf:nth-child(1) { left: 10%; animation-duration: 8s; animation-delay: 0s; width: 10px; height: 20px; }
+        .leaf:nth-child(2) { left: 20%; animation-duration: 7s; animation-delay: 1s; width: 14px; height: 28px; }
+        .leaf:nth-child(3) { left: 30%; animation-duration: 9s; animation-delay: 2s; width: 11px; height: 22px; }
+        .leaf:nth-child(4) { left: 40%; animation-duration: 6s; animation-delay: 0.5s; width: 13px; height: 26px; }
+        .leaf:nth-child(5) { left: 50%; animation-duration: 8s; animation-delay: 1.5s; width: 10px; height: 20px; }
+        .leaf:nth-child(6) { left: 60%; animation-duration: 7s; animation-delay: 2.5s; width: 12px; height: 24px; }
+        .leaf:nth-child(7) { left: 70%; animation-duration: 9s; animation-delay: 0.3s; width: 14px; height: 28px; }
+        .leaf:nth-child(8) { left: 80%; animation-duration: 6s; animation-delay: 1.8s; width: 11px; height: 22px; }
+        .leaf:nth-child(9) { left: 90%; animation-duration: 8s; animation-delay: 0.8s; width: 13px; height: 26px; }
+        .leaf:nth-child(10) { left: 5%; animation-duration: 7s; animation-delay: 2.2s; width: 10px; height: 20px; }
+        .leaf:nth-child(11) { left: 25%; animation-duration: 9s; animation-delay: 3s; width: 12px; height: 24px; }
+        .leaf:nth-child(12) { left: 45%; animation-duration: 6s; animation-delay: 0.4s; width: 14px; height: 28px; }
+        .leaf:nth-child(13) { left: 65%; animation-duration: 8s; animation-delay: 1.2s; width: 11px; height: 22px; }
+        .leaf:nth-child(14) { left: 85%; animation-duration: 7s; animation-delay: 1s; width: 13px; height: 26px; }
+        .leaf:nth-child(15) { left: 15%; animation-duration: 9s; animation-delay: 2.8s; width: 10px; height: 20px; }
+        .leaf:nth-child(16) { left: 35%; animation-duration: 6s; animation-delay: 0.6s; width: 12px; height: 24px; }
+        .leaf:nth-child(17) { left: 55%; animation-duration: 8s; animation-delay: 1.6s; width: 14px; height: 28px; }
+        .leaf:nth-child(18) { left: 75%; animation-duration: 7s; animation-delay: 2.4s; width: 11px; height: 22px; }
+        .leaf:nth-child(19) { left: 95%; animation-duration: 9s; animation-delay: 0.9s; width: 13px; height: 26px; }
+        .leaf:nth-child(20) { left: 8%; animation-duration: 6s; animation-delay: 1.4s; width: 10px; height: 20px; }
+        
+        @keyframes falling {
+            0% {
+                top: -10%;
+                transform: translateX(0) rotate(0deg) scale(0.8);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            50% {
+                transform: translateX(30px) rotate(180deg) scale(1);
+            }
+            90% {
+                opacity: 0.5;
+            }
+            100% {
+                top: 110%;
+                transform: translateX(-20px) rotate(360deg) scale(0.6);
+                opacity: 0;
+            }
+        }
+        
+        /* Floating rice grains */
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse 3px 8px at 15% 30%, rgba(255,255,255,0.4) 0%, transparent 100%),
+                radial-gradient(ellipse 3px 8px at 85% 70%, rgba(255,255,255,0.3) 0%, transparent 100%),
+                radial-gradient(ellipse 3px 8px at 45% 20%, rgba(255,255,255,0.35) 0%, transparent 100%),
+                radial-gradient(ellipse 3px 8px at 75% 40%, rgba(255,255,255,0.25) 0%, transparent 100%),
+                radial-gradient(ellipse 3px 8px at 25% 80%, rgba(255,255,255,0.3) 0%, transparent 100%),
+                radial-gradient(ellipse 3px 8px at 55% 60%, rgba(255,255,255,0.35) 0%, transparent 100%);
+            animation: floatGrains 6s ease-in-out infinite;
+            z-index: 2;
+        }
+        
+        @keyframes floatGrains {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+            50% { transform: translateY(-15px) rotate(5deg); opacity: 0.9; }
+        }
+        
+        .cta-section-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        
+        .cta-section-content {
+            position: relative;
+            z-index: 10;
+        }
+        
+        .cta-section-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: 5;
+            pointer-events: none;
         }
         
         .cta-section h3 {
@@ -1287,8 +1425,8 @@
     <!-- Hero Section -->
     <section class="hero">
         <h2>대한민국 쌀 산업의 가치를 높입니다!</h2>
-        <p>산학연 전문가들의 협력 모임, 지식과 기술을 공유, 및 정책에 반영하여<br>
-        연구 품질 지속가능한 쌀 생태계를 이루는 한국쌀연구회</p>
+        <p>산학연 전문가들의 협력을 통해 지식과 기술을 공유하고 정책에 반영하여<br>
+        지속가능한 쌀 생태계를 이루는 한국쌀연구회</p>
         <a href="#" class="hero-btn">학술대회 일정보기 ></a>
     </section>
 
@@ -1488,13 +1626,36 @@
 
         <!-- CTA Section -->
         <section class="cta-section">
-            <h3>대한민국 쌀 산업의 미래<br>한국쌀연구회가 함께합니다</h3>
-            <p>회원에 가입하시어 더 많은 정보를 확인하고 전문가들과 소통하세요<br>
-            우리의 발걸음이 우리 농업의 새로운 역사가 됩니다.</p>
-            <div class="cta-buttons">
-                <button class="cta-btn primary" onclick="openModal('registerModal')">회원가입</button>
-                <button class="cta-btn" onclick="openModal('contactModal')">문의하기</button>
-                <button class="cta-btn" onclick="openModal('chatModal')">회원채팅창</button>
+            <!-- Falling Rice Grains -->
+            <div class="cta-leaves">
+                <div class="leaf"></div>
+                <div class="leaf"></div>
+                <div class="leaf"></div>
+                <div class="leaf"></div>
+                <div class="leaf"></div>
+                <div class="leaf"></div>
+                <div class="leaf"></div>
+                <div class="leaf"></div>
+                <div class="leaf"></div>
+                <div class="leaf"></div>
+                <div class="leaf"></div>
+                <div class="leaf"></div>
+                <div class="leaf"></div>
+            </div>
+            
+            <!-- Overlay for text readability -->
+            <div class="cta-section-overlay"></div>
+            
+            <!-- Content -->
+            <div class="cta-section-content">
+                <h3>대한민국 쌀 산업의 미래<br>한국쌀연구회가 함께합니다</h3>
+                <p>회원에 가입하시어 더 많은 정보를 확인하고 전문가들과 소통하세요<br>
+                우리의 발걸음이 대한민국 농업의 새로운 역사가 됩니다.</p>
+                <div class="cta-buttons">
+                    <button class="cta-btn primary" onclick="openModal('registerModal')">회원가입</button>
+                    <button class="cta-btn" onclick="openModal('contactModal')">문의하기</button>
+                    <button class="cta-btn" onclick="openModal('chatModal')">회원채팅창</button>
+                </div>
             </div>
         </section>
     </main>
