@@ -1,0 +1,1922 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>한국쌀연구회 KRTWG</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        /* Header */
+        .header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .logo-text h1 {
+            font-size: 18px;
+            color: #2E7D32;
+            font-weight: 700;
+        }
+        
+        .logo-text span {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        .nav ul li a {
+            font-size: 14px;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 10px 0;
+        }
+        
+        .nav ul li a:hover {
+            color: #2E7D32;
+        }
+        
+        .nav ul li:last-child a {
+            background: #4CAF50;
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 20px;
+        }
+        
+        .nav ul li:last-child a:hover {
+            background: #388E3C;
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 650px;
+            background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)), 
+                        url('heroimage.png') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+        }
+        
+        /* Feature Cards Section */
+        .feature-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .feature-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid #e8e8e8;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+        
+        .feature-card:nth-child(2) {
+            background: linear-gradient(135deg, #F1F8E9, #E8F5E9);
+            border: 2px solid #C5E1A5;
+        }
+        
+        .feature-card .icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .feature-card .icon i {
+            font-size: 30px;
+            color: #4CAF50;
+        }
+        
+        .feature-card h3 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .feature-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.8;
+        }
+        
+        .hero h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .hero-btn {
+            background: #8BC34A;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: transform 0.3s, background 0.3s;
+        }
+        
+        .hero-btn:hover {
+            background: #7CB342;
+            transform: translateY(-2px);
+        }
+        
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
+            background: #f9f9f9;
+        }
+        
+        /* News Grid */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+            align-items: stretch;
+        }
+        
+        /* Second Row */
+        .second-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+            align-items: stretch;
+        }
+        
+        .news-box {
+            background: #fffbeb;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid #e8e8e8;
+            height: 260px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .news-box h3 {
+            flex-shrink: 0;
+            font-size: 15px;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+        }
+        
+        .news-box .news-list {
+            flex: 1;
+        }
+        
+        .news-box h3 {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #4CAF50;
+        }
+        
+        .news-list {
+            list-style: none;
+        }
+        
+        .news-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            font-size: 12px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .news-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .news-list li a {
+            color: #555;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 70%;
+        }
+        
+        .news-list li a:hover {
+            color: #2E7D32;
+        }
+        
+        .news-list li span {
+            color: #999;
+            font-size: 12px;
+        }
+        
+        /* Calendar Section */
+        .calendar-section {
+            background: #fff;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid #e8e8e8;
+            height: 260px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .calendar-header h3 {
+            font-size: 14px;
+            color: #333;
+        }
+        
+        .calendar-nav {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .calendar-nav button {
+            background: #4CAF50;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        
+        .calendar-nav button:hover {
+            background: #388E3C;
+        }
+        
+        .calendar-nav .month-year {
+            font-weight: 600;
+            min-width: 100px;
+            text-align: center;
+        }
+        
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1px;
+            text-align: center;
+        }
+        
+        .calendar-grid .day-name {
+            background: #f5f5f5;
+            padding: 4px 2px;
+            font-weight: 600;
+            font-size: 11px;
+            color: #666;
+        }
+        
+        .calendar-grid .day-name:first-child {
+            color: #e53935;
+        }
+        
+        .calendar-grid .day-name:last-child {
+            color: #1976D2;
+        }
+        
+        .calendar-grid .day {
+            padding: 4px 2px;
+            font-size: 11px;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: background 0.3s;
+        }
+        
+        .calendar-grid .day:hover {
+            background: #E8F5E9;
+        }
+        
+        .calendar-grid .day.today {
+            background: #4CAF50;
+            color: #fff;
+            font-weight: 600;
+        }
+        
+        .calendar-grid .day.has-event {
+            background: #FFF3E0;
+            color: #E65100;
+            font-weight: 600;
+        }
+        
+        .calendar-grid .day.other-month {
+            color: #ccc;
+        }
+        
+        .calendar-grid .day.sunday {
+            color: #e53935;
+        }
+        
+        .calendar-grid .day.saturday {
+            color: #1976D2;
+        }
+        
+        /* Second Row */
+        .second-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        /* Member Registration Banner */
+        .member-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .member-banner {
+            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), 
+                        url('member.png') center/cover;
+            border-radius: 15px;
+            padding: 30px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .member-banner:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+        }
+        
+        .member-banner h3 {
+            font-size: 24px;
+            color: #2E7D32;
+            margin-bottom: 10px;
+        }
+        
+        .member-banner p {
+            font-size: 14px;
+            color: #558B2F;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .member-banner .btn {
+            background: #4CAF50;
+            color: #fff;
+            padding: 10px 25px;
+            border-radius: 20px;
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        .member-banner .rice-icon {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            font-size: 80px;
+            color: rgba(46, 125, 50, 0.1);
+        }
+        
+        /* Event Schedule */
+        .event-schedule {
+            background: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+        
+        .event-schedule h3 {
+            font-size: 18px;
+            color: #4CAF50;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .event-item {
+            display: flex;
+            gap: 20px;
+            padding: 15px 0;
+            border-bottom: 1px dashed #e0e0e0;
+        }
+        
+        .event-item:last-child {
+            border-bottom: none;
+        }
+        
+        .event-date {
+            text-align: center;
+            min-width: 60px;
+        }
+        
+        .event-date .month {
+            font-size: 12px;
+            color: #4CAF50;
+        }
+        
+        .event-date .day {
+            font-size: 28px;
+            font-weight: 700;
+            color: #2E7D32;
+        }
+        
+        .event-info h4 {
+            font-size: 15px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+        
+        .event-info p {
+            font-size: 13px;
+            color: #666;
+        }
+        
+        /* Statistics Section */
+        .stats-section {
+            background: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+        
+        .stats-section h3 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #4CAF50;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .chart-placeholder {
+            background: linear-gradient(to right, #E8F5E9, #C8E6C9, #A5D6A7, #81C784);
+            height: 200px;
+            border-radius: 10px;
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .chart-bar {
+            flex: 1;
+            margin: 0 5px;
+            background: rgba(46, 125, 50, 0.7);
+            border-radius: 5px 5px 0 0;
+            transition: height 0.5s;
+        }
+        
+        .stats-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: #F9FBE7;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        
+        .stat-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .stat-item i {
+            font-size: 24px;
+            color: #8BC34A;
+        }
+        
+        .stat-item .stat-text h4 {
+            font-size: 14px;
+            color: #333;
+        }
+        
+        .stat-item .stat-text p {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        /* Video Section */
+        .video-section {
+            margin-bottom: 40px;
+        }
+        
+        .video-section h3 {
+            text-align: center;
+            font-size: 20px;
+            color: #fff;
+            background: #8BC34A;
+            padding: 15px 40px;
+            border-radius: 30px;
+            display: inline-block;
+            margin: 0 auto 30px;
+        }
+        
+        .video-section .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        
+        .video-item {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            position: relative;
+        }
+        
+        .video-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .video-item .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+        }
+        
+        .video-item .play-btn i {
+            color: #4CAF50;
+            font-size: 24px;
+            margin-left: 3px;
+        }
+        
+        .video-item:hover .play-btn {
+            transform: translate(-50%, -50%) scale(1.1);
+            background: #fff;
+        }
+        
+        .video-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .video-dots span {
+            width: 10px;
+            height: 10px;
+            background: #ccc;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .video-dots span.active {
+            background: #4CAF50;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #558B2F 0%, #33691E 100%);
+            padding: 60px 20px;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 40px;
+            border-radius: 20px;
+        }
+        
+        .cta-section h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+        
+        .cta-section p {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .cta-btn {
+            padding: 15px 35px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border: 2px solid #fff;
+            background: transparent;
+            color: #fff;
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+        
+        .cta-btn.primary {
+            background: #fff;
+            color: #2E7D32;
+        }
+        
+        /* Marquee Section */
+        .marquee-section {
+            background: #E8F5E9;
+            padding: 20px 0;
+            margin-bottom: 0;
+            overflow: hidden;
+        }
+        
+        .marquee-content {
+            display: flex;
+            animation: marquee 20s linear infinite;
+        }
+        
+        .marquee-content:hover {
+            animation-play-state: paused;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        .marquee-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 40px;
+            white-space: nowrap;
+            font-size: 14px;
+            color: #2E7D32;
+            font-weight: 500;
+        }
+        
+        .marquee-item a {
+            color: #2E7D32;
+            transition: color 0.3s;
+        }
+        
+        .marquee-item a:hover {
+            color: #1B5E20;
+            text-decoration: underline;
+        }
+        
+        .marquee-item i {
+            color: #4CAF50;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #333;
+            color: #fff;
+            padding: 40px 20px;
+        }
+        
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        
+        .footer-logo h3 {
+            font-size: 18px;
+            color: #8BC34A;
+            margin-bottom: 15px;
+        }
+        
+        .footer-logo p {
+            font-size: 13px;
+            color: #aaa;
+            line-height: 1.8;
+        }
+        
+        .footer-info h4 {
+            font-size: 14px;
+            margin-bottom: 15px;
+            color: #8BC34A;
+        }
+        
+        .footer-info p {
+            font-size: 13px;
+            color: #aaa;
+            margin-bottom: 8px;
+        }
+        
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 30px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+        }
+        
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            padding: 20px;
+        }
+        
+        .modal-overlay.active {
+            display: flex;
+        }
+        
+        .modal {
+            background: #fff;
+            border-radius: 20px;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        .modal-header {
+            background: linear-gradient(135deg, #4CAF50, #8BC34A);
+            color: #fff;
+            padding: 25px 30px;
+            border-radius: 20px 20px 0 0;
+        }
+        
+        .modal-header h3 {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+        
+        .modal-header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: #fff;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background 0.3s;
+        }
+        
+        .modal-close:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .modal-body {
+            padding: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        
+        .form-group label span {
+            color: #e53935;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .form-section {
+            background: #F9FBE7;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .form-section h4 {
+            font-size: 15px;
+            color: #558B2F;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .radio-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .radio-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .radio-item input[type="radio"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #4CAF50;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #4CAF50, #8BC34A);
+            color: #fff;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(76, 175, 80, 0.4);
+        }
+        
+        /* Chat Modal */
+        .chat-modal {
+            max-width: 450px;
+            height: 600px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .chat-modal .modal-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        .chat-message {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .chat-message.sent {
+            align-items: flex-end;
+        }
+        
+        .chat-message.received {
+            align-items: flex-start;
+        }
+        
+        .message-info {
+            font-size: 11px;
+            color: #999;
+            margin-bottom: 5px;
+        }
+        
+        .message-bubble {
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 18px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .chat-message.sent .message-bubble {
+            background: #4CAF50;
+            color: #fff;
+            border-bottom-right-radius: 4px;
+        }
+        
+        .chat-message.received .message-bubble {
+            background: #fff;
+            color: #333;
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .chat-input-area {
+            padding: 15px;
+            background: #fff;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .chat-input-area input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 14px;
+            outline: none;
+        }
+        
+        .chat-input-area input:focus {
+            border-color: #4CAF50;
+        }
+        
+        .chat-input-area button {
+            background: #4CAF50;
+            color: #fff;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .chat-input-area button:hover {
+            background: #388E3C;
+        }
+        
+        .chat-notice {
+            background: #FFF3E0;
+            padding: 10px 15px;
+            font-size: 12px;
+            color: #E65100;
+            text-align: center;
+        }
+        
+        /* YouTube Modal */
+        .youtube-modal {
+            max-width: 800px;
+        }
+        
+        .youtube-modal .modal-body {
+            padding: 0;
+        }
+        
+        .youtube-modal iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+            border-radius: 0 0 20px 20px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .feature-cards,
+            .news-grid,
+            .second-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .member-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-inner {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .feature-cards,
+            .news-grid,
+            .second-row,
+            .video-grid,
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero {
+                height: 450px;
+            }
+            
+            .news-box,
+            .calendar-section {
+                height: auto;
+                min-height: 200px;
+            }
+            
+            .hero h2 {
+                font-size: 24px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-inner {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <div class="logo">
+                <div class="logo-icon">
+                    <img src="logo.png" alt="한국쌀연구회 로고">
+                </div>
+                <div class="logo-text">
+                    <h1>한국쌀연구회</h1>
+                    <span>KRTWG</span>
+                </div>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="greeting.html">연구소소개</a></li>
+                    <li><a href="#">주요행사</a></li>
+                    <li><a href="#">연구성과 및 학술자료</a></li>
+                    <li><a href="#">커뮤니티</a></li>
+                    <li><a href="#">언론보도 및 홍보</a></li>
+                    <li><a href="#" onclick="openModal('loginModal')">로그인</a></li>
+                    <li><a href="#" onclick="openModal('registerModal')">회원가입</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>대한민국 쌀 산업의 가치를 높입니다!</h2>
+        <p>산학연 전문가들의 협력 모임, 지식과 기술을 공유, 및 정책에 반영하여<br>
+        연구 품질 지속가능한 쌀 생태계를 이루는 한국쌀연구회</p>
+        <a href="#" class="hero-btn">학술대회 일정보기 ></a>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Feature Cards -->
+        <section class="feature-cards">
+            <div class="feature-card">
+                <div class="icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>지식 네트워크</h3>
+                <p>전국의 산·학·연 전문가가 참여하는<br>
+                대한민국 최대의 쌀 관련 인적<br>
+                인프라를 갖추고 있습니다.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">
+                    <i class="fas fa-seedling"></i>
+                </div>
+                <h3>기술 혁신 공유</h3>
+                <p>최신 재배기술부터 병충해,<br>
+                가공기술까지 실질적인 연구 성과를<br>
+                가장 빠르게 공유합니다.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">
+                    <i class="fas fa-landmark"></i>
+                </div>
+                <h3>현장 중심 정책</h3>
+                <p>현장의 생생한 목소리와 전문가의<br>
+                의견을 더해 실효성 있는 농업정책<br>
+                수립의 기반을 제공합니다.</p>
+            </div>
+        </section>
+
+        <!-- News Grid -->
+        <section class="news-grid">
+            <div class="news-box">
+                <h3>연구회 주요행사</h3>
+                <ul class="news-list">
+                    <li><a href="#">연구회 주요행사 일정</a><span>2026-02-03</span></li>
+                    <li><a href="#">연구회 주요행사 일정</a><span>2026-02-03</span></li>
+                    <li><a href="#">연구회 주요행사 일정</a><span>2026-02-03</span></li>
+                    <li><a href="#">연구회 주요행사 일정</a><span>2026-02-03</span></li>
+                    <li><a href="#">연구회 주요행사 일정</a><span>2026-02-03</span></li>
+                </ul>
+            </div>
+            <div class="news-box">
+                <h3>공지사항</h3>
+                <ul class="news-list">
+                    <li><a href="#">쌀연구회 발족 행사</a><span>2026-02-03</span></li>
+                    <li><a href="#">쌀연구회 발족 행사</a><span>2026-02-03</span></li>
+                    <li><a href="#">쌀연구회 발족 행사</a><span>2026-02-03</span></li>
+                    <li><a href="#">쌀연구회 발족 행사</a><span>2026-02-03</span></li>
+                    <li><a href="#">쌀연구회 발족 행사</a><span>2026-02-03</span></li>
+                </ul>
+            </div>
+            <div class="calendar-section">
+                <div class="calendar-header">
+                    <h3>행사 일정 한 눈에 살펴보기</h3>
+                    <div class="calendar-nav">
+                        <button onclick="changeMonth(-1)"><i class="fas fa-chevron-left"></i></button>
+                        <span class="month-year" id="monthYear">2026년 1월</span>
+                        <button onclick="changeMonth(1)"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                <div class="calendar-grid" id="calendarGrid">
+                    <!-- Calendar will be generated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Second Row -->
+        <section class="second-row">
+            <div class="news-box">
+                <h3>정기총회, 학술대회</h3>
+                <ul class="news-list">
+                    <li><a href="#">정기총회 일정</a><span>2026-02-03</span></li>
+                    <li><a href="#">학술대회 일정</a><span>2026-02-03</span></li>
+                    <li><a href="#">학술대회 일정</a><span>2026-02-03</span></li>
+                    <li><a href="#">학술대회 일정</a><span>2026-02-03</span></li>
+                    <li><a href="#">국내대회 일정</a><span>2026-02-03</span></li>
+                </ul>
+            </div>
+            <div class="news-box">
+                <h3>자유게시판</h3>
+                <ul class="news-list">
+                    <li><a href="#">회원들의 의견 게시</a><span>2026-02-03</span></li>
+                    <li><a href="#">회원들의 의견 게시</a><span>2026-02-03</span></li>
+                    <li><a href="#">회원들의 의견 게시</a><span>2026-02-03</span></li>
+                    <li><a href="#">회원들의 의견 게시</a><span>2026-02-03</span></li>
+                    <li><a href="#">회원들의 의견 게시</a><span>2026-02-03</span></li>
+                </ul>
+            </div>
+            <div class="news-box">
+                <h3>언론보도</h3>
+                <ul class="news-list">
+                    <li><a href="#">언론보도내용</a><span>2026-02-03</span></li>
+                    <li><a href="#">언론보도내용</a><span>2026-02-03</span></li>
+                    <li><a href="#">언론보도내용</a><span>2026-02-03</span></li>
+                    <li><a href="#">언론보도내용</a><span>2026-02-03</span></li>
+                    <li><a href="#">언론보도내용</a><span>2026-02-03</span></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Member Section -->
+        <section class="member-section">
+            <div class="member-banner" onclick="openModal('registerModal')">
+                <!-- 배경 이미지에 텍스트가 포함되어 있음 -->
+            </div>
+            <div class="event-schedule">
+                <h3><i class="fas fa-calendar-check"></i> 주요 행사 일정</h3>
+                <div class="event-item">
+                    <div class="event-date">
+                        <div class="month">2026년</div>
+                        <div class="day">2.5</div>
+                    </div>
+                    <div class="event-info">
+                        <h4>2026년도 한국쌀연구회 학술발표회</h4>
+                        <p>장 소 : 국립식량과학원 본관 3층 대회의실</p>
+                    </div>
+                </div>
+                <div class="event-item">
+                    <div class="event-date">
+                        <div class="month">2026년</div>
+                        <div class="day">3.15</div>
+                    </div>
+                    <div class="event-info">
+                        <h4>쌀 품질향상 워크숍</h4>
+                        <p>장 소 : 농촌진흥청 강당</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistics Section -->
+        <section class="stats-section">
+            <h3>쌀 관련 주요 지표</h3>
+            <div class="stats-grid">
+                <div class="chart-placeholder">
+                    <div class="chart-bar" style="height: 40%"></div>
+                    <div class="chart-bar" style="height: 55%"></div>
+                    <div class="chart-bar" style="height: 70%"></div>
+                    <div class="chart-bar" style="height: 60%"></div>
+                    <div class="chart-bar" style="height: 75%"></div>
+                    <div class="chart-bar" style="height: 65%"></div>
+                </div>
+                <div class="stats-info">
+                    <div class="stat-item">
+                        <i class="fas fa-chart-line"></i>
+                        <div class="stat-text">
+                            <h4>연도별 생산 추이</h4>
+                            <p>국내 쌀 생산량 및 재배면적 등 데이터</p>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-users"></i>
+                        <div class="stat-text">
+                            <h4>연도별 쌀 소비</h4>
+                            <p>국내 1인당 쌀 소비량 데이터</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Section -->
+        <section class="video-section">
+            <div class="section-title">
+                <h3>한국쌀연구회 주요 활동 영상</h3>
+            </div>
+            <div class="video-grid">
+                <div class="video-item" onclick="openYouTube('VIDEO_ID_1')">
+                    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600" alt="논 풍경">
+                    <div class="play-btn">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+                <div class="video-item" onclick="openYouTube('VIDEO_ID_2')">
+                    <img src="https://images.unsplash.com/photo-1499529112087-3cb3b73cec95?w=600" alt="일몰 논">
+                    <div class="play-btn">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="video-dots">
+                <span class="active"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h3>대한민국 쌀 산업의 미래<br>한국쌀연구회가 함께합니다</h3>
+            <p>회원에 가입하시어 더 많은 정보를 확인하고 전문가들과 소통하세요<br>
+            우리의 발걸음이 우리 농업의 새로운 역사가 됩니다.</p>
+            <div class="cta-buttons">
+                <button class="cta-btn primary" onclick="openModal('registerModal')">회원가입</button>
+                <button class="cta-btn" onclick="openModal('contactModal')">문의하기</button>
+                <button class="cta-btn" onclick="openModal('chatModal')">회원채팅창</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Marquee Section -->
+    <section class="marquee-section">
+        <div class="marquee-content">
+            <div class="marquee-item">
+                <i class="fas fa-external-link-alt"></i>
+                한국쌀연구회는 우리 쌀 산업의 가치를 높이고 미래 농업의 길을 열어갑니다
+            </div>
+            <div class="marquee-item">
+                <i class="fas fa-building"></i>
+                <a href="https://www.rda.go.kr" target="_blank">농촌진흥청</a>
+            </div>
+            <div class="marquee-item">
+                <i class="fas fa-building"></i>
+                <a href="https://www.nics.go.kr" target="_blank">국립식량과학원</a>
+            </div>
+            <div class="marquee-item">
+                <i class="fas fa-building"></i>
+                <a href="https://www.epis.or.kr" target="_blank">한국농업기술진흥원</a>
+            </div>
+            <div class="marquee-item">
+                <i class="fas fa-external-link-alt"></i>
+                한국쌀연구회는 우리 쌀 산업의 가치를 높이고 미래 농업의 길을 열어갑니다
+            </div>
+            <div class="marquee-item">
+                <i class="fas fa-building"></i>
+                <a href="https://www.rda.go.kr" target="_blank">농촌진흥청</a>
+            </div>
+            <div class="marquee-item">
+                <i class="fas fa-building"></i>
+                <a href="https://www.nics.go.kr" target="_blank">국립식량과학원</a>
+            </div>
+            <div class="marquee-item">
+                <i class="fas fa-building"></i>
+                <a href="https://www.epis.or.kr" target="_blank">한국농업기술진흥원</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-logo">
+                <h3>
+                    <img src="logo.png" alt="한국쌀연구회 로고" style="width: 60px; height: 60px; vertical-align: middle; margin-right: 12px;">
+                    한국쌀연구회 KRTWG
+                </h3>
+                <p>쌀연구회는 우리의 쌀 산업 발전과 지식기반 혁신을<br>
+                주도하는 전문가 그룹입니다. 산·학·연이 협력하여<br>
+                최고의 시너지를 창출합니다</p>
+            </div>
+            <div class="footer-info">
+                <h4>회장 : 박 광 호</h4>
+                <p>사업자등록번호 :</p>
+                <p>주소 : 경기도 수원시 권선구 서둔로 166<br>국립식량과학원내</p>
+                <p>대표번호 :</p>
+            </div>
+            <div class="footer-info">
+                <h4>연락처</h4>
+                <p>팩스 :</p>
+                <p>이메일 :</p>
+            </div>
+            <div class="footer-info">
+                <h4>개인정보보호책임자</h4>
+                <p>사무총장 정응기</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 한국쌀연구회. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Register Modal -->
+    <div class="modal-overlay" id="registerModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>회원등록 신청서</h3>
+                <p>한국쌀연구회 회원이 되어주세요</p>
+                <button class="modal-close" onclick="closeModal('registerModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="registerForm" onsubmit="submitRegistration(event)">
+                    <div class="form-group">
+                        <label>아이디 <span>*</span></label>
+                        <input type="text" name="userId" required placeholder="영문, 숫자 조합 6-20자">
+                    </div>
+                    <div class="form-group">
+                        <label>비밀번호 <span>*</span></label>
+                        <input type="password" name="password" required placeholder="영문, 숫자, 특수문자 조합 8-20자">
+                    </div>
+                    <div class="form-group">
+                        <label>비밀번호 확인 <span>*</span></label>
+                        <input type="password" name="passwordConfirm" required placeholder="비밀번호를 다시 입력해주세요">
+                    </div>
+                    <div class="form-group">
+                        <label>성함 <span>*</span></label>
+                        <input type="text" name="name" required placeholder="이름을 입력해주세요">
+                    </div>
+                    <div class="form-group">
+                        <label>연락처 (휴대폰) <span>*</span></label>
+                        <input type="tel" name="phone" required placeholder="010-0000-0000">
+                    </div>
+                    <div class="form-group">
+                        <label>이메일 (본인 인증 및 공지 발송용) <span>*</span></label>
+                        <div class="form-row">
+                            <input type="email" name="email" required placeholder="example@email.com">
+                            <button type="button" class="submit-btn" style="padding: 12px; font-size: 14px;" onclick="sendVerification()">인증번호 발송</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>이메일 인증번호</label>
+                        <input type="text" name="emailVerify" placeholder="이메일로 발송된 인증번호를 입력해주세요">
+                    </div>
+                    
+                    <div class="form-section">
+                        <h4><i class="fas fa-building"></i> 소속 정보</h4>
+                        <div class="form-group">
+                            <label>직장/기관명 <span>*</span></label>
+                            <input type="text" name="organization" required placeholder="소속 기관명을 입력해주세요">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>부서명</label>
+                                <input type="text" name="department" placeholder="부서명">
+                            </div>
+                            <div class="form-group">
+                                <label>직위</label>
+                                <input type="text" name="position" placeholder="직위">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h4><i class="fas fa-user-tag"></i> 회원 구분</h4>
+                        <div class="form-group">
+                            <label>회원 유형 <span>*</span></label>
+                            <div class="radio-group">
+                                <label class="radio-item">
+                                    <input type="radio" name="memberType" value="researcher" required>
+                                    <span>연구원</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="memberType" value="farmer">
+                                    <span>농업인</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="memberType" value="professor">
+                                    <span>교수</span>
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="memberType" value="other">
+                                    <span>기타</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>전문 분야</label>
+                        <textarea name="expertise" rows="3" placeholder="재배기술, 가공, 유통 등 전문 분야를 기재해주세요"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">회원가입 신청</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal-overlay" id="loginModal">
+        <div class="modal" style="max-width: 400px;">
+            <div class="modal-header">
+                <h3>로그인</h3>
+                <p>한국쌀연구회에 오신 것을 환영합니다</p>
+                <button class="modal-close" onclick="closeModal('loginModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form onsubmit="return handleLogin(event)">
+                    <div class="form-group">
+                        <label>아이디</label>
+                        <input type="text" name="loginId" required placeholder="아이디를 입력해주세요">
+                    </div>
+                    <div class="form-group">
+                        <label>비밀번호</label>
+                        <input type="password" name="loginPw" required placeholder="비밀번호를 입력해주세요">
+                    </div>
+                    <button type="submit" class="submit-btn">로그인</button>
+                </form>
+                <p style="text-align: center; margin-top: 20px; font-size: 14px; color: #666;">
+                    아직 회원이 아니신가요? 
+                    <a href="#" onclick="closeModal('loginModal'); openModal('registerModal');" style="color: #4CAF50; font-weight: 600;">회원가입</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div class="modal-overlay" id="contactModal">
+        <div class="modal" style="max-width: 500px;">
+            <div class="modal-header">
+                <h3>문의하기</h3>
+                <p>궁금한 점이 있으시면 문의해주세요</p>
+                <button class="modal-close" onclick="closeModal('contactModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form onsubmit="return handleContact(event)">
+                    <div class="form-group">
+                        <label>이름 <span>*</span></label>
+                        <input type="text" name="contactName" required placeholder="이름을 입력해주세요">
+                    </div>
+                    <div class="form-group">
+                        <label>이메일 <span>*</span></label>
+                        <input type="email" name="contactEmail" required placeholder="답변 받으실 이메일을 입력해주세요">
+                    </div>
+                    <div class="form-group">
+                        <label>제목 <span>*</span></label>
+                        <input type="text" name="contactSubject" required placeholder="문의 제목을 입력해주세요">
+                    </div>
+                    <div class="form-group">
+                        <label>문의 내용 <span>*</span></label>
+                        <textarea name="contactMessage" rows="5" required placeholder="문의 내용을 상세히 작성해주세요"></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">문의 보내기</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Modal -->
+    <div class="modal-overlay" id="chatModal">
+        <div class="modal chat-modal">
+            <div class="modal-header">
+                <h3>회원 채팅방</h3>
+                <p>회원들과 실시간으로 소통하세요</p>
+                <button class="modal-close" onclick="closeModal('chatModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="chat-notice">
+                    <i class="fas fa-info-circle"></i> 채팅 기록은 1개월간 보관됩니다
+                </div>
+                <div class="chat-messages" id="chatMessages">
+                    <div class="chat-message received">
+                        <span class="message-info">시스템 · 오늘</span>
+                        <div class="message-bubble">
+                            한국쌀연구회 회원 채팅방에 오신 것을 환영합니다! 🌾
+                        </div>
+                    </div>
+                    <div class="chat-message received">
+                        <span class="message-info">김연구 · 10:30</span>
+                        <div class="message-bubble">
+                            안녕하세요! 이번 학술대회 관련해서 문의드릴게 있는데요.
+                        </div>
+                    </div>
+                    <div class="chat-message received">
+                        <span class="message-info">박농업 · 10:35</span>
+                        <div class="message-bubble">
+                            네, 말씀하세요! 저도 참석 예정입니다.
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-input-area">
+                    <input type="text" id="chatInput" placeholder="메시지를 입력하세요..." onkeypress="handleChatKeypress(event)">
+                    <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- YouTube Modal -->
+    <div class="modal-overlay" id="youtubeModal">
+        <div class="modal youtube-modal">
+            <div class="modal-header">
+                <h3>활동 영상</h3>
+                <p>한국쌀연구회 주요 활동</p>
+                <button class="modal-close" onclick="closeYouTube()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <iframe id="youtubeFrame" src="" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Calendar functionality
+        let currentDate = new Date();
+        
+        const events = [
+            { date: '2026-01-15', title: '신년 워크숍' },
+            { date: '2026-02-05', title: '학술발표회' },
+            { date: '2026-03-15', title: '쌀 품질향상 워크숍' }
+        ];
+        
+        function renderCalendar() {
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth();
+            
+            document.getElementById('monthYear').textContent = `${year}년 ${month + 1}월`;
+            
+            const firstDay = new Date(year, month, 1);
+            const lastDay = new Date(year, month + 1, 0);
+            const startingDay = firstDay.getDay();
+            const totalDays = lastDay.getDate();
+            
+            let html = `
+                <div class="day-name">일</div>
+                <div class="day-name">월</div>
+                <div class="day-name">화</div>
+                <div class="day-name">수</div>
+                <div class="day-name">목</div>
+                <div class="day-name">금</div>
+                <div class="day-name">토</div>
+            `;
+            
+            // Previous month's days
+            const prevMonthLastDay = new Date(year, month, 0).getDate();
+            for (let i = startingDay - 1; i >= 0; i--) {
+                html += `<div class="day other-month">${prevMonthLastDay - i}</div>`;
+            }
+            
+            // Current month's days
+            const today = new Date();
+            for (let day = 1; day <= totalDays; day++) {
+                const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                const hasEvent = events.some(e => e.date === dateStr);
+                const isToday = today.getFullYear() === year && today.getMonth() === month && today.getDate() === day;
+                const dayOfWeek = new Date(year, month, day).getDay();
+                
+                let classes = ['day'];
+                if (isToday) classes.push('today');
+                if (hasEvent) classes.push('has-event');
+                if (dayOfWeek === 0) classes.push('sunday');
+                if (dayOfWeek === 6) classes.push('saturday');
+                
+                html += `<div class="${classes.join(' ')}" onclick="showDayEvents('${dateStr}')">${day}</div>`;
+            }
+            
+            // Next month's days
+            const remainingDays = 42 - (startingDay + totalDays);
+            for (let day = 1; day <= remainingDays; day++) {
+                html += `<div class="day other-month">${day}</div>`;
+            }
+            
+            document.getElementById('calendarGrid').innerHTML = html;
+        }
+        
+        function changeMonth(delta) {
+            currentDate.setMonth(currentDate.getMonth() + delta);
+            renderCalendar();
+        }
+        
+        function showDayEvents(dateStr) {
+            const dayEvents = events.filter(e => e.date === dateStr);
+            if (dayEvents.length > 0) {
+                alert(`${dateStr} 행사:\n${dayEvents.map(e => e.title).join('\n')}`);
+            }
+        }
+        
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        // Close modal when clicking outside
+        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+        
+        // Form submissions
+        function submitRegistration(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            
+            if (formData.get('password') !== formData.get('passwordConfirm')) {
+                alert('비밀번호가 일치하지 않습니다.');
+                return;
+            }
+            
+            // Here you would normally send data to server
+            alert('회원가입 신청이 완료되었습니다.\n관리자 승인 후 로그인이 가능합니다.');
+            closeModal('registerModal');
+            form.reset();
+        }
+        
+        function sendVerification() {
+            const emailInput = document.querySelector('input[name="email"]');
+            if (!emailInput.value) {
+                alert('이메일을 먼저 입력해주세요.');
+                return;
+            }
+            alert(`${emailInput.value}로 인증번호가 발송되었습니다.`);
+        }
+        
+        function handleLogin(event) {
+            event.preventDefault();
+            // Here you would normally verify credentials with server
+            alert('로그인 기능은 서버 연동 후 사용 가능합니다.');
+            return false;
+        }
+        
+        function handleContact(event) {
+            event.preventDefault();
+            alert('문의가 성공적으로 전송되었습니다.\n빠른 시일 내에 답변드리겠습니다.');
+            closeModal('contactModal');
+            event.target.reset();
+            return false;
+        }
+        
+        // Chat functions
+        const chatMessages = [];
+        const CHAT_STORAGE_KEY = 'krtwg_chat_messages';
+        const ONE_MONTH_MS = 30 * 24 * 60 * 60 * 1000;
+        
+        function loadChatMessages() {
+            const stored = localStorage.getItem(CHAT_STORAGE_KEY);
+            if (stored) {
+                const messages = JSON.parse(stored);
+                const now = Date.now();
+                // Filter out messages older than 1 month
+                return messages.filter(msg => (now - msg.timestamp) < ONE_MONTH_MS);
+            }
+            return [];
+        }
+        
+        function saveChatMessages(messages) {
+            localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(messages));
+        }
+        
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            const now = new Date();
+            const timeStr = `${now.getHours()}:${String(now.getMinutes()).padStart(2, '0')}`;
+            
+            const messageObj = {
+                text: message,
+                sender: '나',
+                time: timeStr,
+                timestamp: Date.now(),
+                isSent: true
+            };
+            
+            const messages = loadChatMessages();
+            messages.push(messageObj);
+            saveChatMessages(messages);
+            
+            addMessageToChat(messageObj);
+            input.value = '';
+        }
+        
+        function addMessageToChat(msg) {
+            const chatContainer = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-message ${msg.isSent ? 'sent' : 'received'}`;
+            messageDiv.innerHTML = `
+                <span class="message-info">${msg.sender} · ${msg.time}</span>
+                <div class="message-bubble">${msg.text}</div>
+            `;
+            chatContainer.appendChild(messageDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+        
+        function handleChatKeypress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+        
+        // YouTube functions
+        function openYouTube(videoId) {
+            // Replace VIDEO_ID with actual YouTube video IDs
+            // Example: const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            const embedUrl = 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0';
+            document.getElementById('youtubeFrame').src = embedUrl;
+            openModal('youtubeModal');
+        }
+        
+        function closeYouTube() {
+            document.getElementById('youtubeFrame').src = '';
+            closeModal('youtubeModal');
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCalendar();
+            
+            // Load saved chat messages
+            const savedMessages = loadChatMessages();
+            savedMessages.forEach(msg => addMessageToChat(msg));
+        });
+    </script>
+</body>
+</html>
